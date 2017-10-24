@@ -7,6 +7,7 @@ import java.sql.*;
 public class JDBCTest {
 
     Connection myConn = null;
+    PreparedStatement prepMyStmt = null;
     Statement myStmt = null;
     ResultSet myRs = null;
 
@@ -18,6 +19,15 @@ public class JDBCTest {
         try {
             myConn = DriverManager.getConnection(dbURL, user, pass);
             myStmt = myConn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Database connection successful!\n");
+    }
+
+    public void getConnectionToDBPreparedStmt() {
+        try {
+            myConn = DriverManager.getConnection(dbURL, user, pass);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -106,6 +116,28 @@ public class JDBCTest {
         }
     }
 
+    @Test(enabled = true)
+    public void preparedStatement() {
+        getConnectionToDBPreparedStmt();
+        try {
+             prepMyStmt = myConn.prepareStatement("select * from employees " +
+            "where salary > ? and department = ?");
+
+             prepMyStmt.setDouble(1, 8000);
+             prepMyStmt.setString(2, "Legal");
+
+             myRs = prepMyStmt.executeQuery();
+
+             display(myRs);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
+
     public void close(ResultSet rs, Statement stmt, Connection conn) {
         if((rs != null) && (stmt != null) && (conn != null)) {
             try {
@@ -118,6 +150,18 @@ public class JDBCTest {
         }
     }
 
+    public void display(ResultSet rs) {
+        try {
+            while (rs.next()) {
+                System.out.println(rs.getString("last_name") + ", " + rs.getString("first_name")
+                        + ", " + rs.getString("email") + ", " + rs.getString("department") + ", " + rs.getString("salary"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void displayEmployee(String firstName, String lastName) {
         try {
             myRs = myStmt.executeQuery("select * from employees where first_name='" + firstName + "' and last_name='" + lastName + "'");
@@ -128,15 +172,6 @@ public class JDBCTest {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
-            if(myRs != null) {
-                try {
-                    myRs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 

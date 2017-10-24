@@ -36,9 +36,8 @@ public class JDBCTest {
 
     @Test(enabled = true)
     public void readData() {
-
-        getConnectionToDB();
         try {
+            getConnectionToDB();
             myRs = myStmt.executeQuery("select * from employees");
 
             while (myRs.next()) {
@@ -54,8 +53,8 @@ public class JDBCTest {
 
     @Test(enabled = true)
     public void insertData() {
-        getConnectionToDB();
         try {
+            getConnectionToDB();
             insertDataStatement("Khan", "Rahee", "rahee@gmail.com", "HR", 33000.00);
 
             myRs = myStmt.executeQuery("select * from employees");
@@ -74,9 +73,8 @@ public class JDBCTest {
 
     @Test(enabled = true)
     public void updateData() {
-        getConnectionToDB();
         try {
-
+            getConnectionToDB();
             System.out.println("BEFORE THE UPDATE ... ");
             displayEmployee("Rahee", "Khan");
 
@@ -96,9 +94,8 @@ public class JDBCTest {
 
     @Test(enabled = true)
     public void deleteData() {
-        getConnectionToDB();
         try {
-
+            getConnectionToDB();
             System.out.println("BEFORE THE UPDATE ... ");
             displayEmployee("Rahee", "Khan");
 
@@ -118,8 +115,8 @@ public class JDBCTest {
 
     @Test(enabled = true)
     public void preparedStatement() {
-        getConnectionToDBPreparedStmt();
         try {
+             getConnectionToDBPreparedStmt();
              prepMyStmt = myConn.prepareStatement("select * from employees " +
             "where salary > ? and department = ?");
 

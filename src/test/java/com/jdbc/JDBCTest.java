@@ -56,13 +56,7 @@ public class JDBCTest {
             e.printStackTrace();
         }
         finally {
-            if(myRs != null) {
-                try {
-                    myRs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            close(myRs, myStmt, myConn);
         }
     }
 
@@ -82,6 +76,43 @@ public class JDBCTest {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
+
+    @Test(enabled = true)
+    public void deleteData() {
+        getConnectionToDB();
+        try {
+
+            System.out.println("BEFORE THE UPDATE ... ");
+            displayEmployee("Rahee", "Khan");
+
+            myStmt.executeUpdate("DELETE from employees " +
+            "WHERE last_name='Khan' AND first_name='Rahee'");
+
+            System.out.println("AFTER THE UPDATE ... ");
+            displayEmployee("Rahee", "Khan");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
+
+    public void close(ResultSet rs, Statement stmt, Connection conn) {
+        if((myRs != null) && (myStmt != null) && (myConn != null)) {
+            try {
+                myRs.close();
+                myStmt.close();
+                myConn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

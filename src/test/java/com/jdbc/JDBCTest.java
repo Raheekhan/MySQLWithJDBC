@@ -17,6 +17,7 @@ public class JDBCTest {
     public void getConnectionToDB() {
         try {
             myConn = DriverManager.getConnection(dbURL, user, pass);
+            myStmt = myConn.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -29,7 +30,6 @@ public class JDBCTest {
 
         getConnectionToDB();
         try {
-            myStmt = myConn.createStatement();
             myRs = myStmt.executeQuery("select * from employees");
 
             while (myRs.next()) {
@@ -44,8 +44,7 @@ public class JDBCTest {
     public void insertData() {
         getConnectionToDB();
         try {
-            myStmt = myConn.createStatement();
-            insertDataStatement("Khan", "Isac", "Isac@gmail.com", "HR", 33000.00);
+            insertDataStatement("Khan", "Rahee", "rahee@gmail.com", "HR", 33000.00);
 
             myRs = myStmt.executeQuery("select * from employees");
 
@@ -53,6 +52,47 @@ public class JDBCTest {
                 System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name"));
             }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(myRs != null) {
+                try {
+                    myRs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Test(enabled = true)
+    public void updateData() {
+        getConnectionToDB();
+        try {
+
+            System.out.println("BEFORE THE UPDATE ... ");
+            displayEmployee("Rahee", "Khan");
+
+            myStmt.executeUpdate(
+                    "UPDATE employees SET email='raheek@gmail.com' WHERE first_name='Rahee' AND last_name='Khan'");
+
+            System.out.println("AFTER THE UPDATE ... ");
+            displayEmployee("Rahee", "Khan");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayEmployee(String firstName, String lastName) {
+        try {
+            myRs = myStmt.executeQuery("select * from employees where first_name='" + firstName + "' and last_name='" + lastName + "'");
+
+            while(myRs.next()) {
+                System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name")
+                + ", " + myRs.getString("email") + ", " + myRs.getString("department") + ", " + myRs.getString("salary"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

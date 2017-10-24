@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35ef5d5c-f3c3-40d8-afa3-1127df677e66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/jdbc/test/Common.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MySQLWithJDBC.iml" afterPath="$PROJECT_DIR$/MySQLWithJDBC.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/jdbc/test/Common.java" afterPath="$PROJECT_DIR$/src/test/java/com/jdbc/test/Common.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,16 +18,13 @@
       <file leaf-file-name="JDBCTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            <state relative-caret-position="327">
+              <caret line="70" column="9" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="70" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#readData#0;class#JDBCTest#0" expanded="false" />
-                <element signature="method#insertData#0;class#JDBCTest#0" expanded="false" />
                 <element signature="method#updateData#0;class#JDBCTest#0" expanded="false" />
                 <element signature="method#deleteData#0;class#JDBCTest#0" expanded="false" />
                 <element signature="method#close#0;class#JDBCTest#0" expanded="false" />
-                <element signature="method#insertDataStatement#0;class#JDBCTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -39,10 +33,13 @@
       <file leaf-file-name="Common.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/jdbc/test/Common.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="556">
+              <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#close#0;class#Common#0" expanded="false" />
+                <element signature="method#display#0;class#Common#0" expanded="false" />
+                <element signature="method#displayEmployee#0;class#Common#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -81,8 +78,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/jdbc/test/DB.properties" />
         <option value="$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/jdbc/test/Common.java" />
         <option value="$PROJECT_DIR$/src/test/resources/DB.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jdbc/test/Common.java" />
       </list>
     </option>
   </component>
@@ -155,15 +152,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jdbc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MySQLWithJDBC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MySQLWithJDBC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,39 +463,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Common_test - 2017.10.24 at 16h 12m 56s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 16h 51m 35s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Common_test - 2017.10.24 at 16h 13m 14s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 16h 55m 40s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Common_test - 2017.10.24 at 16h 13m 37s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 18h 55m 04s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Common_test - 2017.10.24 at 16h 15m 26s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 18h 55m 28s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Common_test - 2017.10.24 at 16h 16m 18s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 18h 59m 49s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Common_test - 2017.10.24 at 16h 16m 49s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 19h 00m 07s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Common_test - 2017.10.24 at 16h 17m 27s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 19h 00m 14s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Common_test - 2017.10.24 at 16h 21m 16s.xml">
+    <history-entry file="Common_test - 2017.10.24 at 19h 00m 31s.xml">
       <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="JDBCTest_preparedStatement - 2017.10.24 at 15h 18m 23s.xml">
-      <configuration name="JDBCTest.preparedStatement" configurationId="TestNG" />
+    <history-entry file="Common_test - 2017.10.24 at 19h 01m 17s.xml">
+      <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="JDBCTest_readData - 2017.10.24 at 15h 08m 03s.xml">
-      <configuration name="JDBCTest.readData" configurationId="TestNG" />
+    <history-entry file="Common_test - 2017.10.24 at 19h 01m 43s.xml">
+      <configuration name="Common.test" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="565" y="0" width="875" height="900" extended-state="0" />
+    <frame x="404" y="0" width="1036" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -518,14 +506,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Jenkins" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23529412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20523138" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24957842" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -545,7 +533,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -576,26 +564,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="327">
+          <caret line="70" column="9" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="70" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readData#0;class#JDBCTest#0" expanded="false" />
-            <element signature="method#insertData#0;class#JDBCTest#0" expanded="false" />
             <element signature="method#updateData#0;class#JDBCTest#0" expanded="false" />
             <element signature="method#deleteData#0;class#JDBCTest#0" expanded="false" />
             <element signature="method#close#0;class#JDBCTest#0" expanded="false" />
-            <element signature="method#insertDataStatement#0;class#JDBCTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/jdbc/test/Common.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="556">
+          <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#close#0;class#Common#0" expanded="false" />
+            <element signature="method#display#0;class#Common#0" expanded="false" />
+            <element signature="method#displayEmployee#0;class#Common#0" expanded="false" />
           </folding>
         </state>
       </provider>

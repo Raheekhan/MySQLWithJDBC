@@ -25,7 +25,9 @@ public class Common {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Database connection successful!\n");
+        System.out.println("\n===============================");
+        System.out.println("Database connection successful!");
+        System.out.println("===============================\n");
     }
 
     private void getConnectionToDBPreparedStmt() {
@@ -34,21 +36,47 @@ public class Common {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Database connection successful!\n");
+        System.out.println("\n===============================");
+        System.out.println("Database connection successful!");
+        System.out.println("===============================\n");
     }
 
-    private void readFromDataBase(String firstName, String lastName) {
+    @Test
+    public void test() {
+        //comparisonSalary("!=", 90000.00);
+        //insertData("Khan", "Isac", "isac@gmail.com", "QA", 70000.00);
+        readData();
+    }
+
+    public void comparisonSalary(String operator,double salary) {
         try {
             getConnectionToDBPreparedStmt();
-            prepMyStmt = myConn.prepareStatement("SELECT * FROM employees " +
-                    "WHERE first_name = ? AND last_name = ?");
 
-            prepMyStmt.setString(1, firstName);
-            prepMyStmt.setString(2, lastName);
+            if((operator.equals("<")) || (operator.equals(">")) || (operator.equals("<="))
+                    || (operator.equals(">=")) || (operator.equals("!=")) || (operator.equals("=="))) {
+                prepMyStmt = myConn.prepareStatement("SELECT * FROM employees WHERE salary " + operator + " ?");
+                prepMyStmt.setDouble(1, salary);
+                myRs = prepMyStmt.executeQuery();
+                display(myRs);
+            } else {
+                System.out.println("Provide Valid Operator: '<' OR '>'");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
 
-            myRs = prepMyStmt.executeQuery();
-
-            display(myRs);
+    public void insertData(String lastName, String firstName, String email, String department, double salary) {
+        try {
+            getConnectionToDB();
+            insertDataQuery(lastName, firstName, email, department, salary);
+            myRs = myStmt.executeQuery("select * from employees");
+            while(myRs.next()) {
+                display(myRs);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,20 +86,45 @@ public class Common {
         }
     }
 
-    public void readFromDataBase(int id, String firstName, String lastName) {
+    public void readData() {
+        try {
+            getConnectionToDB();
+            myRs = myStmt.executeQuery("select * from employees");
+            while (myRs.next()) {
+                display(myRs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readData(String firstName, String lastName) {
+        try {
+            getConnectionToDBPreparedStmt();
+            prepMyStmt = myConn.prepareStatement("SELECT * FROM employees " +
+                    "WHERE first_name = ? AND last_name = ?");
+            prepMyStmt.setString(1, firstName);
+            prepMyStmt.setString(2, lastName);
+            myRs = prepMyStmt.executeQuery();
+            display(myRs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
+
+    public void readData(int id, String firstName, String lastName) {
         try {
             getConnectionToDBPreparedStmt();
             prepMyStmt = myConn.prepareStatement("SELECT * FROM employees " +
                     "WHERE id = ? AND first_name = ? AND last_name = ?");
-
             prepMyStmt.setInt(1,id);
             prepMyStmt.setString(2, firstName);
             prepMyStmt.setString(3, lastName);
-
             myRs = prepMyStmt.executeQuery();
-
             display(myRs);
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -111,6 +164,17 @@ public class Common {
                 System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name")
                         + ", " + myRs.getString("email") + ", " + myRs.getString("department") + ", " + myRs.getString("salary"));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void insertDataQuery(String lastName, String firstName, String email, String department, double salary) {
+        try {
+            myStmt.executeUpdate("insert into employees " +
+                    "(last_name, first_name, email, department, salary)" +
+                    "values " +
+                    "('" + lastName + "', '" + firstName + "', '" + email + "', '" + department + "', " + salary + ")");
         } catch (SQLException e) {
             e.printStackTrace();
         }

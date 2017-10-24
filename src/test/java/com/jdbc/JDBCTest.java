@@ -21,7 +21,6 @@ public class JDBCTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         System.out.println("Database connection successful!\n");
     }
 
@@ -37,6 +36,9 @@ public class JDBCTest {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
         }
     }
 
@@ -105,11 +107,11 @@ public class JDBCTest {
     }
 
     public void close(ResultSet rs, Statement stmt, Connection conn) {
-        if((myRs != null) && (myStmt != null) && (myConn != null)) {
+        if((rs != null) && (stmt != null) && (conn != null)) {
             try {
-                myRs.close();
-                myStmt.close();
-                myConn.close();
+                rs.close();
+                stmt.close();
+                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35ef5d5c-f3c3-40d8-afa3-1127df677e66" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/jdbc/JDBCTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/jdbc/JDBCTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,11 +20,10 @@
       <file leaf-file-name="JDBCTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="96" column="43" lean-forward="false" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
+            <state relative-caret-position="121">
+              <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#close#0;class#JDBCTest#0" expanded="false" />
                 <element signature="method#displayEmployee#0;class#JDBCTest#0" expanded="false" />
                 <element signature="method#insertDataStatement#0;class#JDBCTest#0" expanded="false" />
               </folding>
@@ -401,10 +402,10 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="TestNG.JDBCTest.readData" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.JDBCTest.deleteData" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.JDBCTest.insertData" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.JDBCTest.updateData" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG.JDBCTest" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.JDBCTest" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.JDBCTest.deleteData" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.JDBCTest.insertData" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.JDBCTest.updateData" />
       </list>
     </recent_temporary>
   </component>
@@ -425,6 +426,9 @@
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="JDBCTest - 2017.10.24 at 15h 06m 20s.xml">
+      <configuration name="JDBCTest" configurationId="TestNG" />
+    </history-entry>
     <history-entry file="JDBCTest_deleteData - 2017.10.24 at 15h 02m 04s.xml">
       <configuration name="JDBCTest.deleteData" configurationId="TestNG" />
     </history-entry>
@@ -434,11 +438,8 @@
     <history-entry file="JDBCTest_readData - 2017.10.24 at 15h 02m 16s.xml">
       <configuration name="JDBCTest.readData" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="JDBCTest_updateData - 2017.10.24 at 14h 49m 08s.xml">
-      <configuration name="JDBCTest.updateData" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="JDBCTest_updateData - 2017.10.24 at 14h 49m 18s.xml">
-      <configuration name="JDBCTest.updateData" configurationId="TestNG" />
+    <history-entry file="JDBCTest_readData - 2017.10.24 at 15h 08m 03s.xml">
+      <configuration name="JDBCTest.readData" configurationId="TestNG" />
     </history-entry>
     <history-entry file="JDBCTest_updateData - 2017.10.24 at 14h 50m 08s.xml">
       <configuration name="JDBCTest.updateData" configurationId="TestNG" />
@@ -494,7 +495,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -508,11 +511,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/jdbc/JDBCTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="96" column="43" lean-forward="false" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
+        <state relative-caret-position="121">
+          <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#close#0;class#JDBCTest#0" expanded="false" />
             <element signature="method#displayEmployee#0;class#JDBCTest#0" expanded="false" />
             <element signature="method#insertDataStatement#0;class#JDBCTest#0" expanded="false" />
           </folding>

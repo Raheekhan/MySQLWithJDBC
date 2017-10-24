@@ -45,7 +45,9 @@ public class Common {
     public void test() {
         //comparisonSalary("!=", 90000.00);
         //insertData("Khan", "Isac", "isac@gmail.com", "QA", 70000.00);
-        readData();
+        //removeData("Khan", "Isac");
+        updateData("Khan", "Isac", "isackhan@gmail.com");
+        //readData();
     }
 
     public void comparisonSalary(String operator,double salary) {
@@ -59,8 +61,64 @@ public class Common {
                 myRs = prepMyStmt.executeQuery();
                 display(myRs);
             } else {
-                System.out.println("Provide Valid Operator: '<' OR '>'");
+                System.out.println("Provide Valid Operator: <, >, <=, >=, !=, == ");
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
+
+    public void updateData() {
+        try {
+            getConnectionToDB();
+            System.out.println("BEFORE THE UPDATE ... ");
+            displayEmployee("Rahee", "Khan");
+
+            myStmt.executeUpdate(
+                    "UPDATE employees SET email='raheek@gmail.com' WHERE first_name='Rahee' AND last_name='Khan'");
+
+            System.out.println("AFTER THE UPDATE ... ");
+            displayEmployee("Rahee", "Khan");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
+
+    public void removeData(String lastName, String firstName) {
+        try {
+            getConnectionToDB();
+            System.out.println("BEFORE THE UPDATE ... ");
+            displayEmployee(lastName, firstName);
+
+            myStmt.executeUpdate("DELETE from employees " +
+                    "WHERE last_name='" + lastName + "' AND first_name='" + firstName + "'");
+
+            System.out.println("DELETED DATA ... ");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
+    }
+
+    public void removeData(int id, String lastName, String firstName) {
+        try {
+            getConnectionToDB();
+            System.out.println("BEFORE THE UPDATE ... ");
+            displayEmployee("Isac", "Khan");
+
+            myStmt.executeUpdate("DELETE from employees " +
+                    "WHERE id='" + id + "' AND last_name='" + lastName + "' AND first_name='" + firstName + "'");
+
+            System.out.println("DELETED DATA ... ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -77,7 +135,6 @@ public class Common {
             while(myRs.next()) {
                 display(myRs);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,15 +153,18 @@ public class Common {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
     }
 
-    public void readData(String firstName, String lastName) {
+    public void readData(String lastName, String firstName) {
         try {
             getConnectionToDBPreparedStmt();
             prepMyStmt = myConn.prepareStatement("SELECT * FROM employees " +
-                    "WHERE first_name = ? AND last_name = ?");
-            prepMyStmt.setString(1, firstName);
-            prepMyStmt.setString(2, lastName);
+                    "WHERE last_name = ? AND first_name = ?");
+            prepMyStmt.setString(1, lastName);
+            prepMyStmt.setString(2, firstName);
             myRs = prepMyStmt.executeQuery();
             display(myRs);
         } catch (SQLException e) {
@@ -115,14 +175,14 @@ public class Common {
         }
     }
 
-    public void readData(int id, String firstName, String lastName) {
+    public void readData(int id, String lastName, String firstName) {
         try {
             getConnectionToDBPreparedStmt();
             prepMyStmt = myConn.prepareStatement("SELECT * FROM employees " +
-                    "WHERE id = ? AND first_name = ? AND last_name = ?");
+                    "WHERE id = ? AND last_name = ? AND first_name = ?");
             prepMyStmt.setInt(1,id);
-            prepMyStmt.setString(2, firstName);
-            prepMyStmt.setString(3, lastName);
+            prepMyStmt.setString(2, lastName);
+            prepMyStmt.setString(3, firstName);
             myRs = prepMyStmt.executeQuery();
             display(myRs);
         } catch (SQLException e) {
@@ -156,9 +216,9 @@ public class Common {
         }
     }
 
-    public void displayEmployee(String firstName, String lastName) {
+    public void displayEmployee(String lastName, String firstName) {
         try {
-            myRs = myStmt.executeQuery("select * from employees where first_name='" + firstName + "' and last_name='" + lastName + "'");
+            myRs = myStmt.executeQuery("select * from employees where last_name='" + lastName + "' and first_name='" + firstName + "'");
 
             while(myRs.next()) {
                 System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name")

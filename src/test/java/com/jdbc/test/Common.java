@@ -1,9 +1,6 @@
 package com.jdbc.test;
 
-import org.testng.annotations.Test;
-
 import java.sql.*;
-import java.util.Properties;
 
 public class Common {
 
@@ -11,8 +8,6 @@ public class Common {
     PreparedStatement prepMyStmt = null;
     Statement myStmt = null;
     ResultSet myRs = null;
-
-    Properties prop = null;
 
     String URL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
     String USER = "student";
@@ -41,15 +36,6 @@ public class Common {
         System.out.println("===============================\n");
     }
 
-    @Test
-    public void test() {
-        //comparisonSalary("!=", 90000.00);
-        //insertData("Khan", "Isac", "isac@gmail.com", "QA", 70000.00);
-        //removeData("Khan", "Isac");
-        updateData("Khan", "Isac", "isackhan@gmail.com");
-        //readData();
-    }
-
     public void comparisonSalary(String operator,double salary) {
         try {
             getConnectionToDBPreparedStmt();
@@ -71,17 +57,17 @@ public class Common {
         }
     }
 
-    public void updateData() {
+    public void updateData(String email, String lastName, String firstName) {
         try {
             getConnectionToDB();
             System.out.println("BEFORE THE UPDATE ... ");
-            displayEmployee("Rahee", "Khan");
+            displayEmployee(lastName, firstName);
 
             myStmt.executeUpdate(
-                    "UPDATE employees SET email='raheek@gmail.com' WHERE first_name='Rahee' AND last_name='Khan'");
+                    "UPDATE employees SET email='" + email + "' WHERE last_name='" + lastName + "' AND first_name='" + firstName + "'");
 
             System.out.println("AFTER THE UPDATE ... ");
-            displayEmployee("Rahee", "Khan");
+            displayEmployee(lastName, firstName);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -207,8 +193,10 @@ public class Common {
 
     private void display(ResultSet rs) {
         try {
+            System.out.print("ID\tLASTNAME\tFIRSTNAME\tEMAIL\tDEPARTMENT\tSALARY\n");
+            System.out.println("=======================================================");
             while (rs.next()) {
-                System.out.println(rs.getString("last_name") + ", " + rs.getString("first_name")
+                System.out.println("Employee: " + rs.getString("id") + ", " + rs.getString("last_name") + ", " + rs.getString("first_name")
                         + ", " + rs.getString("email") + ", " + rs.getString("department") + ", " + rs.getString("salary"));
             }
         } catch (SQLException e) {
@@ -216,12 +204,11 @@ public class Common {
         }
     }
 
-    public void displayEmployee(String lastName, String firstName) {
+    private void displayEmployee(String lastName, String firstName) {
         try {
             myRs = myStmt.executeQuery("select * from employees where last_name='" + lastName + "' and first_name='" + firstName + "'");
-
             while(myRs.next()) {
-                System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name")
+                System.out.println(myRs.getString("id") + ", " + myRs.getString("last_name") + ", " + myRs.getString("first_name")
                         + ", " + myRs.getString("email") + ", " + myRs.getString("department") + ", " + myRs.getString("salary"));
             }
         } catch (SQLException e) {

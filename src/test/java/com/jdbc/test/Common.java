@@ -6,6 +6,7 @@ public class Common {
 
     Connection myConn = null;
     PreparedStatement prepMyStmt = null;
+    CallableStatement callableMyStmt = null;
     Statement myStmt = null;
     ResultSet myRs = null;
 
@@ -17,23 +18,43 @@ public class Common {
         try {
             myConn = DriverManager.getConnection(URL, USER, PASS);
             myStmt = myConn.createStatement();
+            System.out.println("\n===============================");
+            System.out.println("Database connection successful!");
+            System.out.println("===============================\n");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("\n===============================");
-        System.out.println("Database connection successful!");
-        System.out.println("===============================\n");
     }
 
     private void getConnectionToDBPreparedStmt() {
         try {
             myConn = DriverManager.getConnection(URL, USER, PASS);
+            System.out.println("\n===============================");
+            System.out.println("Database connection successful!");
+            System.out.println("===============================\n");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("\n===============================");
-        System.out.println("Database connection successful!");
-        System.out.println("===============================\n");
+    }
+
+    public void increaseSalary(String theDepartment, double theIncreaseAmount) {
+
+        try {
+            getConnectionToDBPreparedStmt();
+            callableMyStmt = myConn.prepareCall("{call increase_salaries_for_department(?, ?)}");
+
+            callableMyStmt.setString(1, theDepartment);
+            callableMyStmt.setDouble(2, theIncreaseAmount);
+
+            System.out.println("Calling stored procedure: \tincrease_salaries_for_department('" + theDepartment + "', '" + theIncreaseAmount + "')");
+            callableMyStmt.execute();
+            System.out.println("Finished calling stored procedure");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            close(myRs, myStmt, myConn);
+        }
     }
 
     public void comparisonSalary(String operator,double salary) {

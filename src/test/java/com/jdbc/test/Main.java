@@ -26,6 +26,11 @@ public class Main extends Common {
 
     @Test(enabled = true)
     public void testSalaryComparison() {
-        comparisonSalary("-", 90000.00);
+        comparisonSalary("<", 90000.00);
+    }
+
+    @Test(enabled = true)
+    public void testIncreaseSalary() {
+        increaseSalary("Engineering", 10000.00);
     }
 }

@@ -4,15 +4,15 @@ import java.sql.*;
 
 public class Common {
 
-    Connection myConn = null;
-    PreparedStatement prepMyStmt = null;
-    CallableStatement callableMyStmt = null;
-    Statement myStmt = null;
-    ResultSet myRs = null;
+    private Connection myConn = null;
+    private PreparedStatement prepMyStmt = null;
+    private CallableStatement callableMyStmt = null;
+    private Statement myStmt = null;
+    private ResultSet myRs = null;
 
-    String URL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
-    String USER = "student";
-    String PASS = "student";
+    private String URL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
+    private String USER = "student";
+    private String PASS = "student";
 
     private void getConnectionToDB() {
         try {
